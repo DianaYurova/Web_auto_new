@@ -1,0 +1,19 @@
+<suite name="Group of group Suite" verbose="1">
+    <test name="Group of group Test">
+        <groups>
+            <define name="Positive Tests">
+                <include name="Positives" />
+            </define>
+            <define name="Negative Tests">
+                <include name="Negatives" />
+            </define>
+            <run>
+                <include name="Positives" />
+                <exclude name="Negatives" />
+            </run>
+        </groups>
+        <classes>
+            <class name="test.java.HomeWorkTestNG"/>
+        </classes>
+    </test>
+</suite>
