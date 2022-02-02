@@ -1,29 +1,29 @@
-package test.java;
+        package test.java;
 
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.Reporter;
-import org.testng.annotations.*;
-import org.testng.asserts.Assertion;
+        import org.openqa.selenium.*;
+        import org.openqa.selenium.chrome.ChromeDriver;
+        import org.openqa.selenium.interactions.Actions;
+        import org.openqa.selenium.support.ui.ExpectedConditions;
+        import org.openqa.selenium.support.ui.WebDriverWait;
+        import org.testng.Assert;
+        import org.testng.Reporter;
+        import org.testng.annotations.*;
+        import org.testng.asserts.Assertion;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+        import static org.hamcrest.MatcherAssert.assertThat;
+        import static org.hamcrest.Matchers.*;
 
 
-import java.awt.*;
-import java.io.PrintStream;
-import java.nio.charset.StandardCharsets;
-import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+        import java.awt.*;
+        import java.io.PrintStream;
+        import java.nio.charset.StandardCharsets;
+        import java.time.Duration;
+        import java.util.ArrayList;
+        import java.util.List;
+        import java.util.regex.Matcher;
+        import java.util.regex.Pattern;
 
-@Listeners(test.java.Listener.class)
+        @Listeners(test.java.Listener.class)
 
 public class HomeWorkTestNG {
 
@@ -52,12 +52,6 @@ public class HomeWorkTestNG {
         webElement = driver.findElement(By.id("txtGlobalSearch"));
         act = new Actions(driver);
     }
-//    @DataProvider(name = "inputData", parallel = true)
-//    public Object[][] dataProviderMethod() {
-//        return new Object[][]{
-//
-//        };
-//    }
 
     @Test (groups = {"Positives"})
     public void DouSearch1(){
@@ -79,7 +73,7 @@ public class HomeWorkTestNG {
 
     @Test (groups = {"Positives"})
     public void DouSearch2() {
-        webElementTextToBeCopied = driver.findElement(By.xpath("//div[@class='announce']")).getText();
+        webElementTextToBeCopied = driver.findElement(By.xpath("//span[@class = 'link-title']")).getText().replace("&nbsp;", " ");
         webElement.sendKeys(webElementTextToBeCopied);
         webElement.sendKeys(Keys.ENTER);
         WebElement exWaiter = (new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.presenceOfElementLocated
